@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+<mat-card>
+    <mat-card-header>
+         <mat-card-title>Please Fill the Required Credentials</mat-card-title>
+    </mat-card-header>
+  <mat-card-content>
+   <form [formGroup]="registrationForm"  class="example-form">
+
+
+  <mat-form-field class="example-full-width">
+        <mat-label>Username</mat-label>
+        <input [class.is-invalid]="username.invalid && username.touched" matInput formControlName="username" placeholder="Ex. hd3146">
+        
+      </mat-form-field>
+      <div *ngIf="username.invalid && username.touched">
+        <small *ngIf="username.errors?.required" class="text-danger">Username is required</small>
+        <small *ngIf="username.errors?.minlength" class="text-danger">Username must be atlease 4 character</small>
+    </div>
+  <br><br>
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input  [class.is-invalid]="email.invalid && email.touched" matInput formControlName="email" placeholder="Ex. pat@example.com">
+        </mat-form-field>
+        <div *ngIf="email.invalid && email.touched">
+            <small *ngIf="email.errors?.required" class="text-danger">Email is required</small>
+            <small *ngIf="email.errors?.email" class="text-danger">Invalid Email Address</small>
+        </div>
+<br><br>
+
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input  [class.is-invalid]="password.invalid && password.touched"  type="password" matInput formControlName="password" placeholder="enter your password">
+          </mat-form-field> 
+          <div *ngIf="password.invalid && password.touched">
+            <small *ngIf="password.errors?.required" class="text-danger">Password is required</small>
+            <small *ngIf="password.errors?.minlength" class="text-danger">Length Should be 8 or more than 8</small>
+        </div>
+        <br><br>
+
+        
+          <mat-form-field class="example-full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input  [class.is-invalid]="confirmpassword.invalid && confirmpassword.touched" type="password" matInput formControlName="confirmpassword" placeholder="enter your password again">
+          </mat-form-field>
+          <div *ngIf="confirmpassword.invalid && confirmpassword.touched">
+            <small *ngIf="confirmpassword.errors?.required" class="text-danger">Confirm Password is required</small>
+            <small *ngIf="confirmpassword.errors?.minlength" class="text-danger">Length Should be 8 or more than 8</small>
+            <small *ngIf="confirmpassword.errors?.minlength" class="text-danger">Length Should be 8 or more than 8</small>
+        </div>
+          
+          <br><br>
+  </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button [disabled]="!registrationForm.valid" (click)="onSubmit()" style="float:right;" class=" btn btn-primary" type="submit" >Register</button>
+   </mat-card-actions> <br><br>
+   
+  </mat-card></div></div>

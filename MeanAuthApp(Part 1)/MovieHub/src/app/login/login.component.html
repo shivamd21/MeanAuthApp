@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+<mat-card>
+    <mat-card-header>
+         <mat-card-title>Please Login To Continue</mat-card-title>
+    
+    </mat-card-header>
+  <mat-card-content>
+
+
+    <form  [formGroup]="loginForm"  class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input  [class.is-invalid]="email.invalid && email.touched" matInput formControlName="email" placeholder="Ex. pat@example.com">
+          </mat-form-field>
+          <div *ngIf="email.invalid && email.touched">
+              <small *ngIf="email.errors?.required" class="text-danger">Email is required</small>
+              <small *ngIf="email.errors?.email" class="text-danger">Invalid Email Address</small>
+          </div>
+  <br><br>
+  
+  
+          <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input  [class.is-invalid]="password.invalid && password.touched"  type="password" matInput formControlName="password" placeholder="enter your password">
+            </mat-form-field> 
+            <div *ngIf="password.invalid && password.touched">
+              <small *ngIf="password.errors?.required" class="text-danger">Password is required</small>
+              <small *ngIf="password.errors?.minlength" class="text-danger">Length Should be 8 or more than 8</small>
+          </div>
+          <br><br>
+
+
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button [disabled]="!loginForm.valid" style="float:right;" class=" btn btn-primary" (click)="LoginHandler()"><i class="material-icons"> arrow_right_alt</i></button>
+    <button style="float:left;" class=" btn btn-primary" (click)="SignupHandler()">New User ? </button>
+    
+        
+    </mat-card-actions> <br><br>
+   
+  </mat-card></div></div>

@@ -1,0 +1,36 @@
+ <div class="container">
+  
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <a class="navbar-brand" href="#">MovieHub</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#actionitem">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="actionitem">
+      <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href="/movie" class="nav-link">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="special" class="nav-link">Members</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <a routerLink="login" *ngIf="!authservice.loggedIn()" class="nav-link">Login</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="signup" *ngIf="!authservice.loggedIn()" class="nav-link">Signup</a>
+        </li>
+
+        <li class="nav-item">
+          <a  class="nav-link" *ngIf="authservice.loggedIn()" (click)="logout()">Log Out</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+  
+</div> 
+<div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+</div>
